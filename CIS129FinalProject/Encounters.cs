@@ -13,7 +13,7 @@ using System.Threading.Tasks;
         Console.WriteLine("You instantly go into attack mode on sight of the first monster and run towards it.");
         Console.WriteLine("The monster looks shocked for a moment but then gets ready...");
         Console.ReadKey();
-        Combat("Goblin", 2, 3);
+        Combat("Goblin", 3, 2);
     }
 
     public static void secondEncounter()
@@ -21,18 +21,24 @@ using System.Threading.Tasks;
         Combat("Banshee", 8, 5);
     }
 
+    public static void thirdEncounter()
+    {
+        Combat("Orc", 5, 3);
+    }
+
     //fighting
 
-    public static void Combat(string name, int power, int health)
+    public static void Combat(string name, int power, int attack)
     {
         string n = name;
         int p = power;
-        int h = health;
+        int a = attack;
 
-        while(h > 0)
+        while(p > 0)
         { Console.WriteLine(name);
         Console.WriteLine("Power: " +power);
-        Console.WriteLine("Health: " +health);
+        Console.WriteLine("Attack: " +attack);
+        Console.WriteLine("Choose your method");
             Console.WriteLine("+++++++++++++++++++++++");
             Console.WriteLine("(A)ttack");
             Console.WriteLine("(F)lee");
@@ -46,13 +52,18 @@ using System.Threading.Tasks;
             if ((temp == "a") || (temp == "attack"))
             {
                 //Attack
-                Console.WriteLine("You swipe a fireball");
+                Console.WriteLine("You swipe a fireball which costs you 3MP and does 5 damage");
                 Console.WriteLine("The enemy attacks you back");
-                int damage = p - FinalProject.Program.currentPlayer.health;
-                int attack = 5;
-                Console.WriteLine("You lose " +damage + " and give " + attack + " damage");
-                FinalProject.Program.currentPlayer.health -= damage;
-                h -=attack;
+                FinalProject.Program.currentPlayer.magicpoints -= 3;
+                p -= 5;
+                //int damage = p - FinalProject.Program.currentPlayer.health;
+                //int attack = 5;
+                //Console.WriteLine("You lose " +damage + " and give " + attack + " damage");
+
+                FinalProject.Program.currentPlayer.health -= attack;
+                   Console.WriteLine("Your health is: " +FinalProject.Program.currentPlayer.health);
+                   Console.WriteLine("Your total MP is: " +FinalProject.Program.currentPlayer.magicpoints);
+                //h -=attack;
             }
             else if ((temp == "f") || (temp == "flee"))
             {
