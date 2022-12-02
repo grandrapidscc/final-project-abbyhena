@@ -17,6 +17,7 @@ namespace FinalProject
             Locations.firstLocation();
             Second();
             Encounters.secondEncounter();
+            Congrats();
         }
 
         static void Start()

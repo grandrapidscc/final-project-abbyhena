@@ -56,14 +56,9 @@ using System.Threading.Tasks;
                 Console.WriteLine("The enemy attacks you back");
                 FinalProject.Program.currentPlayer.magicpoints -= 3;
                 p -= 5;
-                //int damage = p - FinalProject.Program.currentPlayer.health;
-                //int attack = 5;
-                //Console.WriteLine("You lose " +damage + " and give " + attack + " damage");
-
                 FinalProject.Program.currentPlayer.health -= attack;
                    Console.WriteLine("Your health is: " +FinalProject.Program.currentPlayer.health);
                    Console.WriteLine("Your total MP is: " +FinalProject.Program.currentPlayer.magicpoints);
-                //h -=attack;
             }
             else if ((temp == "f") || (temp == "flee"))
             {
@@ -71,9 +66,6 @@ using System.Threading.Tasks;
                 if (rand.Next(0,2) == 0)
                 {
                     Console.WriteLine("Flee unsuccessful!");
-                    int damage = p - FinalProject.Program.currentPlayer.health;
-                    Console.WriteLine("You lose " +damage);
-                    FinalProject.Program.currentPlayer.health -= damage;
                     Console.WriteLine("Press a key to continue");
                     Console.ReadKey();
                 }
